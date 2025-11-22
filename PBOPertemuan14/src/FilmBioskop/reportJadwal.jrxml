@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b84e5ad-e393-4170-8e59-2595dcd2243b">
+	<property name="ireport.zoom" value="1.1000000000000025"/>
+	<property name="ireport.x" value="31"/>
+	<property name="ireport.y" value="134"/>
+	<parameter name="username" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 
+    j.id_jadwal,
+    f.judul AS nama_film,
+    j.id_studio,
+    j.tanggal_tayang,
+    j.waktu_tayang
+FROM jadwal_tayang j
+JOIN film f ON j.id_film = f.id_film
+]]>
+	</queryString>
+	<field name="id_jadwal" class="java.lang.String"/>
+	<field name="nama_film" class="java.lang.String"/>
+	<field name="id_studio" class="java.lang.String"/>
+	<field name="tanggal_tayang" class="java.sql.Date"/>
+	<field name="waktu_tayang" class="java.sql.Time"/>
+	<variable name="TOTAL_FILM" class="java.lang.Number" calculation="Count">
+		<variableExpression><![CDATA[$F{id_jadwal}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="168" y="16" width="331" height="42" uuid="d433d246-08c5-49f5-964c-44fd0d086f65"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Bodoni Bd BT" size="24"/>
+				</textElement>
+				<text><![CDATA[DAFTAR FILM BIOSKOP]]></text>
+			</staticText>
+			<image>
+				<reportElement x="85" y="10" width="63" height="56" uuid="2e4248ca-52ee-4023-8fa4-86440de30a86"/>
+				<imageExpression><![CDATA["C:\\Users\\RIYANA\\Pictures\\p.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="118" y="11" width="69" height="13" uuid="48019e49-47ab-48c3-9b4e-de20d18703b8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{username}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="11" width="101" height="13" uuid="f6286d53-fbab-4367-9bcf-322144baae33"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Nama 	                   :]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="118" y="24" width="100" height="12" uuid="b355263b-86ce-4ebf-bbff-73184c16e2f8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="390" y="11" width="156" height="20" uuid="fce01318-e29b-4f8a-91e6-75369ebfd1be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[FOX CINEMA MINIMALIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="24" width="101" height="12" uuid="388bd662-fbbf-4c2d-9aa1-f030e519c357"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Dicetak pada tanggal :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<rectangle>
+				<reportElement x="142" y="21" width="100" height="20" uuid="96645650-fa54-4794-b6d0-ca0d04d40203"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="42" y="21" width="100" height="20" uuid="086a0018-19ce-4cc2-a39e-d8ef216353bf"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="142" y="21" width="100" height="20" uuid="92e762b3-77d3-48e1-bb89-7bb0924aea81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUDUL FILM]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="242" y="21" width="100" height="20" uuid="2e4ba654-bb95-47ed-be71-a2fca0075d51"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="342" y="21" width="100" height="20" uuid="3f3fc32b-8e27-42e2-86d1-7d876cacd7b9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="42" y="21" width="100" height="20" uuid="b8c37947-2bc8-4a87-a19c-a8aedaa2a839"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID JADWAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="21" width="101" height="20" uuid="b73ff6e5-397d-43fd-84c5-4cb00ec99675"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID STUDIO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="442" y="21" width="100" height="20" uuid="b961c86c-df1e-4865-bbc5-ac2a1ca4b11f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="342" y="21" width="100" height="20" uuid="cf2f50de-9b66-4ef3-97b3-6a4d21e40e51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL TAYANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="442" y="21" width="100" height="20" uuid="ad46ce3a-9a49-4581-9f7b-42fbec71cfb5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WAKTU TAYANG]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="342" y="0" width="100" height="20" uuid="b6140b3c-ed0f-47bd-abd2-c4f55374f970"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="242" y="0" width="100" height="20" uuid="0a9e3a8f-9f3f-4162-b712-d01bbf4851b3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="142" y="0" width="100" height="20" uuid="48dbb832-c678-4edb-9171-300730054c78"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="42" y="0" width="100" height="20" uuid="99b07573-816c-44fc-9d78-835a606403a4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="442" y="0" width="100" height="20" uuid="c354d117-6a87-4ff6-a916-7db730e91a23"/>
+			</rectangle>
+			<textField>
+				<reportElement x="42" y="0" width="100" height="20" uuid="d0e88f03-5453-48d8-9468-7c737a00e45d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_jadwal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="0" width="100" height="20" uuid="feaf8577-db77-48ac-9870-63f9a49885d0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_film}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="100" height="20" uuid="f0781561-72fc-40fa-86d5-428d54ce82c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_studio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="0" width="100" height="20" uuid="ee823688-cc57-45cf-a46b-bc221f5ec98a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal_tayang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="0" width="100" height="20" uuid="d6a44ed4-109e-4adc-a5ad-f9dac10048f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waktu_tayang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="15" width="164" height="20" uuid="18b0f46b-84d2-4199-ac9f-2ab04f01d1b5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Dicetak otomatis oleh sistem]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="15" width="119" height="20" uuid="1c1efca5-144f-48a9-839c-063facc782b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="343" y="11" width="100" height="20" uuid="f8eff751-d639-4672-aa90-415e4e822fb5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Jumlah Data Jadwal:]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement x="446" y="11" width="100" height="20" uuid="414140c6-fdff-402e-bf90-37306c3904eb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TOTAL_FILM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
